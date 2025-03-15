@@ -61,7 +61,7 @@ public class Client {
 
     @ToString.Exclude
     @OneToMany(mappedBy = "client")
-    private List<ClientBuy> clientBuys;
+    private List<Order> orders;
 
     @CreationTimestamp
     @Column(name = "create_date")

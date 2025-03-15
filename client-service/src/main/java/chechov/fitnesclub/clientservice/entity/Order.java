@@ -15,8 +15,8 @@ import java.util.UUID;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "client_buy")
-public class ClientBuy {
+@Table(name = "order")
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @EqualsAndHashCode.Include
@@ -36,6 +36,6 @@ public class ClientBuy {
     @Column(name = "amount", nullable = false)
     private BigDecimal amount;
 
-    @Column(name = "buy_date", nullable = false)
-    private LocalDateTime buyDate;
+    @Column(name = "date", nullable = false)
+    private LocalDateTime date;
 }

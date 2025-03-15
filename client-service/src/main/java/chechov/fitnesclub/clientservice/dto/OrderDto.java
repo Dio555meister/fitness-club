@@ -1,10 +1,8 @@
 package chechov.fitnesclub.clientservice.dto;
 
-import chechov.fitnesclub.clientservice.entity.Client;
 import lombok.*;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -15,7 +13,7 @@ import java.util.UUID;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Builder
 @ToString
-public class ClientBuyDto {
+public class OrderDto {
 
     @EqualsAndHashCode.Include
     private UUID id;
@@ -23,5 +21,5 @@ public class ClientBuyDto {
     private UUID productId;
     private UUID paymentId;
     private BigDecimal amount;
-    private LocalDateTime buyDate;
+    private LocalDateTime date;
 }

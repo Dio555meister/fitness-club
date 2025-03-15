@@ -33,5 +33,5 @@ public class Product {
 
     @ToString.Exclude
     @OneToMany(mappedBy = "product")
-    private List<ClientBuy> clientBuys;
+    private List<Order> orders;
 }

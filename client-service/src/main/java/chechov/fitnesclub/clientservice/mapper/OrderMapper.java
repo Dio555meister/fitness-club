@@ -1,17 +1,17 @@
 package chechov.fitnesclub.clientservice.mapper;
 
-import chechov.fitnesclub.clientservice.dto.ClientBuyDto;
-import chechov.fitnesclub.clientservice.entity.ClientBuy;
+import chechov.fitnesclub.clientservice.dto.OrderDto;
+import chechov.fitnesclub.clientservice.entity.Order;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
-public interface ClientBuyMapper {
+public interface OrderMapper {
 
-    ClientBuy toEntity(ClientBuyDto dto);
+    Order toEntity(OrderDto dto);
 
     @Mapping(target = "clientId", source = "client.id")
     @Mapping(target = "productId", source = "product.id")
-    ClientBuyDto toDto(ClientBuy entity);
+    OrderDto toDto(Order entity);
 }

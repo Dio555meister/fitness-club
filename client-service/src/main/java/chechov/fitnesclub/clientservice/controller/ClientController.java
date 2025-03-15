@@ -14,7 +14,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/v1/clients")
 public class ClientController {
-    private ClientService clientService;
+    private final ClientService clientService;
 
     @PostMapping
     public UUID createClient(@RequestBody ClientDto clientDto) {

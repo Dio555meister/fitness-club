@@ -4,6 +4,7 @@ import chechov.fitnesclub.clientservice.entity.enums.Gender;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -27,5 +28,5 @@ public class ClientDto {
     private Gender gender;
     private UUID membershipId;
     @ToString.Exclude
-    private List<UUID> clientBuyIds;
+    private List<UUID> clientBuyIds = new ArrayList<>();
 }
