@@ -15,7 +15,7 @@ import java.util.UUID;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "client_visit")
+@Table(name = "client_visits")
 public class ClientVisit {
 
     @Id

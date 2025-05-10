@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+
+    <changeSet id="generate_test_clients_data" author="oleg">
+        <preConditions onFail="HALT">
+            <tableExists tableName="clients"/>
+        </preConditions>
+        <sql>
+            INSERT INTO clients (id, firstname, lastname, birthday, phone_number, email, address, gender, membership_id,
+                                 date_of_last_visit)
+            VALUES (gen_random_uuid(), 'Иван', 'Иванов', '1990-01-15', '+79991234567', 'ivan.ivanov@example.com',
+                    'Москва, ул. Пушкина, д. 1', 'MALE', NULL, CURRENT_TIMESTAMP),
+                   (gen_random_uuid(), 'Мария', 'Петрова', '1985-05-20', '+79997654321', 'maria.petrovna@example.com',
+                    'Санкт-Петербург, ул. Ленина, д. 2', 'FEMALE', NULL, CURRENT_TIMESTAMP),
+                   (gen_random_uuid(), 'Дмитрий', 'Сидоров', '1992-03-30', '+79995551234', 'dmitry.sidorov@example.com',
+                    'Екатеринбург, ул. Чехова, д. 3', 'MALE', NULL, CURRENT_TIMESTAMP);
+        </sql>
+    </changeSet>
+</databaseChangeLog>

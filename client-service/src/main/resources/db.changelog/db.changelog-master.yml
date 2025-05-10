@@ -1,9 +1,11 @@
 databaseChangeLog:
   - include:
-      file: db.changelog/changeset/V1.0__create_client_table.sql
+      file: db.changelog/changeset/V1.0__create_clients_table.sql
   - include:
-      file: db.changelog/changeset/V1.1__create_client_visit_table.sql
+      file: db.changelog/changeset/V1.1__create_client_visits_table.sql
   - include:
-      file: db.changelog/changeset/V1.2__create_product_table.sql
+      file: db.changelog/changeset/V1.2__create_products_table.sql
   - include:
-      file: db.changelog/changeset/V1.3__create_client_buy_table.sql
+      file: db.changelog/changeset/V1.3__create_orders_table.sql
+  - include:
+      file: db.changelog/changeset/generate_test_data.xml

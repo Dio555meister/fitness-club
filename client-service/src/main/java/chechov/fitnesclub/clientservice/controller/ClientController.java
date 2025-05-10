@@ -29,7 +29,7 @@ public class ClientController {
     }
 
     @GetMapping
-    public List<ClientDto> getAllClient() {
+    public List<ClientDto> getAllClients() {
         log.info("Пришел запрос на получение всех клиентов");
         return clientService.getAllClient();
     }

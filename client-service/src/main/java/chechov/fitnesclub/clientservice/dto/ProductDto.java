@@ -14,11 +14,10 @@ import java.util.UUID;
 @Builder
 @ToString
 public class ProductDto {
-    @EqualsAndHashCode.Include
+    @EqualsAndHashCode.Exclude
     private UUID id;
     private String name;
     private String description;
     private BigDecimal price;
-    @ToString.Exclude
-    private List<UUID> clientBuysIds;
+    private List<UUID> orderIds;
 }

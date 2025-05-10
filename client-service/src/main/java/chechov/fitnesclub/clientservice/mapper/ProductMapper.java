@@ -16,19 +16,11 @@ public interface ProductMapper {
 
     Product toEntity(ProductDto dto);
 
-    @Mapping(target = "clientBuysIds", source = "orders", qualifiedByName = "mapClientBuysToIds")
+    @Mapping(target = "orderIds", source = "orders", qualifiedByName = "mapOrdersToIds")
     ProductDto toDto(Product entity);
 
-@Named("mapClientBuysToIds")
-    default List<UUID> mapClientBuysToIds(List<Order> orders) {
-        return orders.stream()
-//                .map(new Function<ClientBuy, UUID>() {
-//                    @Override
-//                    public UUID apply(ClientBuy clientBuy) {
-//                        return clientBuy.getId();
-//                    }
-//                })
-//                .toList();
-                .map(Order::getId).toList();
+    @Named("mapOrdersToIds")
+    default List<UUID> mapOrdersToIds(List<Order> orders) {
+        return orders.stream().map(Order::getId).toList();
     }
 }

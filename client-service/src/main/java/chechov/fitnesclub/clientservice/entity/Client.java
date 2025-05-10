@@ -19,7 +19,7 @@ import java.util.UUID;
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-@Table(name = "client")
+@Table(name = "clients")
 public class Client {
 
     @Id

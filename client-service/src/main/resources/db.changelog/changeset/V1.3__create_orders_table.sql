@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS "order"
+CREATE TABLE IF NOT EXISTS "orders"
 (
     id UUID PRIMARY KEY,
     client_id UUID NOT NULL,
@@ -6,6 +6,6 @@ CREATE TABLE IF NOT EXISTS "order"
     payment_id UUID NOT NULL,
     amount NUMERIC NOT NULL,
     date TIMESTAMPTZ NOT NULL,
-    FOREIGN KEY (client_id) REFERENCES client(id),
-    FOREIGN KEY (product_id) REFERENCES product(id)
+    FOREIGN KEY (client_id) REFERENCES clients(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
     );

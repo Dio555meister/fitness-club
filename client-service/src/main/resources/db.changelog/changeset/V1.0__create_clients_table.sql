@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS client
+CREATE TABLE IF NOT EXISTS clients
     (
     id UUID PRIMARY KEY,
     firstname VARCHAR(255) NOT NULL,
@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS client
     phone_number VARCHAR(32) NOT NULL UNIQUE,
     email VARCHAR(255) NOT NULL UNIQUE,
     address VARCHAR(255),
-    gender VARCHAR(16),
+    gender VARCHAR(32),
     membership_id UUID,
     date_of_last_visit TIMESTAMPTZ,
     create_date TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP,
