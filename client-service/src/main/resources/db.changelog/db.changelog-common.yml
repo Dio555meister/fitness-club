@@ -7,5 +7,3 @@ databaseChangeLog:
       file: db.changelog/changeset/V1.2__create_products_table.sql
   - include:
       file: db.changelog/changeset/V1.3__create_orders_table.sql
-  - include:
-      file: db.changelog/changeset/generate_test_data.xml

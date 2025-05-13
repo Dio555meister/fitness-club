@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: db.changelog/db.changelog-common.yml
+  - include:
+      file: db.changelog/changeset/generate_test_data.xml
