@@ -16,6 +16,16 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+  kafka:
+    bootstrap-servers: localhost:9092  # Адрес вашего Kafka-брокера
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: client-service-group  # Идентификатор группы консьюмеров
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
 ---
 spring:
   config:
@@ -35,3 +45,4 @@ logging:
   level:
     liquibase: DEBUG
     liquibase.executor.jdbc.JdbcExecutor: DEBUG
+

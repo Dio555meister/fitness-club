@@ -14,8 +14,8 @@ services:
     hostname: broker
     container_name: broker
     ports:
-      - "9092:9092"  # Для клиентов
-      - "29092:29092"  # Для внутреннего обмена (Kafdrop)
+      - "9092:9092"
+      - "29092:29092"
     environment:
       KAFKA_ENABLE_KRAFT: "yes"
       KAFKA_CFG_NODE_ID: "1"
@@ -28,12 +28,21 @@ services:
       KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE: "true"
       KAFKA_CFG_CONTROLLER_LISTENER_NAMES: "CONTROLLER"
       ALLOW_PLAINTEXT_LISTENER: "yes"
+      # Добавлено для создания топика при старте
+    command: >
+      bash -c "
+      /opt/bitnami/scripts/kafka/run.sh &
+      sleep 10;
+      /opt/bitnami/kafka/bin/kafka-topics.sh --create --bootstrap-server broker:29092 --topic orders --partitions 1 --replication-factor 1;
+      /opt/bitnami/kafka/bin/kafka-topics.sh --create --bootstrap-server broker:29092 --topic payments --partitions 1 --replication-factor 1;
+      wait;
+      "
 
   kafbat-ui:
     container_name: kafbat-ui
     image: ghcr.io/kafbat/kafka-ui:latest
     ports:
-      - "8090:8080"
+      - "7777:8080"
     environment:
       - KAFKA_CLUSTERS_0_NAME=local
       - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=broker:29092
